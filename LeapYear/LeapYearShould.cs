@@ -20,11 +20,19 @@ namespace LeapYear
         {
             LeapYear.IsLeapYear(year).Should().BeFalse();
         }
+         
+        [Theory]
+        [InlineData(2026)]
+        [InlineData(2025)]
+        public void ReturnFalse_WhenYearIs_NotDivisibleBy4And100_ButNotBy400(int year)
+        {
+            LeapYear.IsLeapYear(year).Should().BeFalse();
+        }
 
         [Theory]
         [InlineData(1900)]
         [InlineData(2100)]
-        public void ReturnFalse_WhenYearIs_NotDivisibleBy4And100_ButNotBy400(int year)
+        public void ReturnFalse_WhenYearIs_DivisibleBy4And100_ButNotBy400(int year)
         {
             LeapYear.IsLeapYear(year).Should().BeFalse();
         }
